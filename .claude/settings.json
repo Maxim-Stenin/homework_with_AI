@@ -23,7 +23,10 @@
       "Edit(materials/**)",
       "Edit(homework.pdf)",
       "Write(materials/**)",
-      "Write(homework.pdf)"
+      "Write(homework.pdf)",
+      "Edit(app/**)",
+      "Write(app/**)",
+      "NotebookEdit(app/**)"
     ],
     "ask": [
       "Bash(git push*)",
