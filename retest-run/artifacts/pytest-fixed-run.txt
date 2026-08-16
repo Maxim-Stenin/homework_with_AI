@@ -1,0 +1,236 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\msten\AppData\Local\Programs\Python\Python314\python.exe
+rootdir: C:\Users\msten\Downloads\TestTask
+configfile: pytest.ini
+plugins: base-url-2.1.0, playwright-0.9.0
+collecting ... collected 169 items
+
+tests-fixed/test_chart.py::test_empty_chart_shows_hint[chromium] PASSED  [  0%]
+tests-fixed/test_chart.py::test_single_category_is_100_percent[chromium] PASSED [  1%]
+tests-fixed/test_chart.py::test_legend_shows_name_amount_and_share[chromium] PASSED [  1%]
+tests-fixed/test_chart.py::test_income_tab_switches_dataset[chromium] PASSED [  2%]
+tests-fixed/test_chart.py::test_expense_tab_empty_when_only_income[chromium] PASSED [  2%]
+tests-fixed/test_chart.py::test_chart_returns_to_empty_after_deleting_last_row[chromium] PASSED [  3%]
+tests-fixed/test_chart.py::test_ring_geometry_is_what_the_threshold_assumes[chromium] PASSED [  4%]
+tests-fixed/test_chart.py::test_center_label_fits_the_ring[chromium] PASSED [  4%]
+tests-fixed/test_chart.py::test_table_empty_hint_after_deleting_everything[chromium] PASSED [  5%]
+tests-fixed/test_csv_export.py::test_download_has_expected_name[chromium] PASSED [  5%]
+tests-fixed/test_csv_export.py::test_header_row[chromium] PASSED         [  6%]
+tests-fixed/test_csv_export.py::test_utf8_bom_and_cyrillic[chromium] PASSED [  7%]
+tests-fixed/test_csv_export.py::test_comma_inside_value_is_quoted[chromium] PASSED [  7%]
+tests-fixed/test_csv_export.py::test_quotes_are_doubled[chromium] PASSED [  8%]
+tests-fixed/test_csv_export.py::test_amount_has_two_decimals[chromium] PASSED [  8%]
+tests-fixed/test_csv_export.py::test_income_and_expense_types[chromium] PASSED [  9%]
+tests-fixed/test_csv_import.py::test_valid_csv_is_loaded[chromium] PASSED [ 10%]
+tests-fixed/test_csv_import.py::test_import_asks_before_replacing[chromium] PASSED [ 10%]
+tests-fixed/test_csv_import.py::test_cancelled_import_keeps_current_list[chromium] PASSED [ 11%]
+tests-fixed/test_csv_import.py::test_totals_match_loaded_rows[chromium] PASSED [ 11%]
+tests-fixed/test_csv_import.py::test_crlf_line_endings_are_supported[chromium] PASSED [ 12%]
+tests-fixed/test_csv_import.py::test_quoted_values_survive_import[chromium] PASSED [ 13%]
+tests-fixed/test_csv_import.py::test_reimport_replaces_and_does_not_duplicate[chromium] PASSED [ 13%]
+tests-fixed/test_csv_import.py::test_extra_column_is_ignored[chromium] PASSED [ 14%]
+tests-fixed/test_csv_import.py::test_import_updates_chart[chromium] PASSED [ 14%]
+tests-fixed/test_csv_import.py::test_manual_row_then_import_replaces_it[chromium] PASSED [ 15%]
+tests-fixed/test_csv_import.py::test_header_only_file_empties_the_list[chromium] PASSED [ 15%]
+tests-fixed/test_csv_import.py::test_rejected_file_does_not_even_ask[chromium] PASSED [ 16%]
+tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1 2 0 0-\u043f\u0440\u043e\u0431\u0435\u043b \u043c\u0435\u0436\u0434\u0443 \u043a\u0430\u0436\u0434\u043e\u0439 \u0446\u0438\u0444\u0440\u043e\u0439] FAILED [ 17%]
+tests-fixed/test_defects.py::test_rtbug001_whitespace_amount_is_not_silently_reinterpreted[chromium] FAILED [ 17%]
+tests-fixed/test_defects.py::test_rtbug001_whitespace_amount_from_csv_rejected[chromium] FAILED [ 18%]
+tests-fixed/test_defects.py::test_rtbug002_import_error_has_no_double_period[chromium] FAILED [ 18%]
+tests-fixed/test_fixed_bugs.py::test_bug003_delete_asks_confirmation[chromium] PASSED [ 19%]
+tests-fixed/test_fixed_bugs.py::test_bug003_confirmation_names_the_record[chromium] PASSED [ 20%]
+tests-fixed/test_fixed_bugs.py::test_bug003_cancelled_delete_keeps_row[chromium] PASSED [ 20%]
+tests-fixed/test_fixed_bugs.py::test_bug003_confirmed_delete_removes_row[chromium] PASSED [ 21%]
+tests-fixed/test_fixed_bugs.py::test_bug001_import_asks_confirmation[chromium] PASSED [ 21%]
+tests-fixed/test_fixed_bugs.py::test_bug001_cancelled_import_keeps_data[chromium] PASSED [ 22%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_keeps_current_list[chromium-empty.csv-] PASSED [ 23%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_shows_error[chromium] PASSED [ 23%]
+tests-fixed/test_fixed_bugs.py::test_r1_partial_load_is_refused_entirely[chromium] PASSED [ 24%]
+tests-fixed/test_fixed_bugs.py::test_r1_error_names_the_broken_line[chromium] PASSED [ 24%]
+tests-fixed/test_fixed_bugs.py::test_bug004_case_insensitive_categories[chromium] PASSED [ 25%]
+tests-fixed/test_fixed_bugs.py::test_bug004_merged_category_keeps_first_spelling[chromium] PASSED [ 26%]
+tests-fixed/test_fixed_bugs.py::test_bug005_future_date_rejected[chromium-2026-08-17-\u0437\u0430\u0432\u0442\u0440\u0430] PASSED [ 26%]
+tests-fixed/test_fixed_bugs.py::test_bug007_empty_category_rejected[chromium-] PASSED [ 27%]
+tests-fixed/test_fixed_bugs.py::test_bug008_long_category_rejected[chromium-33] PASSED [ 27%]
+tests-fixed/test_fixed_bugs.py::test_bug009_long_category_does_not_break_layout[chromium] PASSED [ 28%]
+tests-fixed/test_fixed_bugs.py::test_bug009_mobile_long_category_no_hscroll[chromium] PASSED [ 28%]
+tests-fixed/test_fixed_bugs.py::test_bug010_amount_above_limit_rejected[chromium] PASSED [ 29%]
+tests-fixed/test_fixed_bugs.py::test_bug011_loose_number_parsing_rejected[chromium-1e5] PASSED [ 30%]
+tests-fixed/test_fixed_bugs.py::test_r3_number_with_tail_rejected[chromium-12abc] PASSED [ 30%]
+tests-fixed/test_fixed_bugs.py::test_bug012_amount_rounding_to_zero_rejected[chromium-0.001] PASSED [ 31%]
+tests-fixed/test_fixed_bugs.py::test_bug013_negative_amount_from_csv_rejected[chromium] PASSED [ 31%]
+tests-fixed/test_fixed_bugs.py::test_bug013_negative_amount_does_not_invert_balance[chromium] PASSED [ 32%]
+tests-fixed/test_fixed_bugs.py::test_r2_chart_and_table_cannot_contradict[chromium] PASSED [ 33%]
+tests-fixed/test_fixed_bugs.py::test_bug014_unknown_type_from_csv_rejected[chromium] PASSED [ 33%]
+tests-fixed/test_fixed_bugs.py::test_bug015_broken_date_from_csv_rejected[chromium] PASSED [ 34%]
+tests-fixed/test_fixed_bugs.py::test_bug015_impossible_date_from_csv_rejected[chromium] PASSED [ 34%]
+tests-fixed/test_fixed_bugs.py::test_bug015_future_date_from_csv_rejected[chromium] PASSED [ 35%]
+tests-fixed/test_fixed_bugs.py::test_bug015_huge_amount_from_csv_rejected[chromium] PASSED [ 36%]
+tests-fixed/test_fixed_bugs.py::test_import_uses_the_same_rules_as_the_form[chromium-cat33.csv-date,type,category,amount,comment\n{d},expense,{c},100.00,\n-\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 33 \u0441\u0438\u043c\u0432\u043e\u043b\u0430] PASSED [ 36%]
+tests-fixed/test_form.py::test_amount_accepted[chromium-5-5,00] PASSED   [ 37%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-] PASSED         [ 37%]
+tests-fixed/test_form.py::test_rejected_form_keeps_entered_values[chromium] PASSED [ 38%]
+tests-fixed/test_form.py::test_error_message_is_visible[chromium] PASSED [ 39%]
+tests-fixed/test_form.py::test_error_message_names_the_format[chromium] PASSED [ 39%]
+tests-fixed/test_form.py::test_amount_boundaries[chromium-99999999-True] PASSED [ 40%]
+tests-fixed/test_form.py::test_amount_rounding[chromium-10.567-10,57] PASSED [ 40%]
+tests-fixed/test_form.py::test_category_accepted[chromium-\u041a\u0430\u0444\u0435] PASSED [ 41%]
+tests-fixed/test_form.py::test_category_length_boundary[chromium-32-True] PASSED [ 42%]
+tests-fixed/test_form.py::test_category_trims_spaces[chromium] PASSED    [ 42%]
+tests-fixed/test_form.py::test_same_category_twice_merges[chromium] PASSED [ 43%]
+tests-fixed/test_form.py::test_markup_in_category_is_not_executed[chromium] PASSED [ 43%]
+tests-fixed/test_form.py::test_datalist_suggests_used_categories[chromium] PASSED [ 44%]
+tests-fixed/test_form.py::test_date_prefilled_with_today[chromium] PASSED [ 44%]
+tests-fixed/test_form.py::test_date_input_has_max_of_today[chromium] PASSED [ 45%]
+tests-fixed/test_form.py::test_past_and_today_accepted[chromium-2026-08-15] PASSED [ 46%]
+tests-fixed/test_form.py::test_empty_date_is_rejected[chromium] PASSED   [ 46%]
+tests-fixed/test_form.py::test_income_is_added_with_plus[chromium] PASSED [ 47%]
+tests-fixed/test_form.py::test_expense_is_default_type[chromium] PASSED  [ 47%]
+tests-fixed/test_form.py::test_comment_is_optional[chromium] PASSED      [ 48%]
+tests-fixed/test_form.py::test_long_comment_is_kept[chromium] PASSED     [ 49%]
+tests-fixed/test_form.py::test_long_comment_does_not_break_layout[chromium] PASSED [ 49%]
+tests-fixed/test_form.py::test_form_is_cleared_after_success[chromium] PASSED [ 50%]
+tests-fixed/test_form.py::test_second_submit_on_empty_form_adds_nothing[chromium] PASSED [ 50%]
+tests-fixed/test_mobile.py::test_main_scenario_without_horizontal_scroll[chromium] PASSED [ 51%]
+tests-fixed/test_mobile.py::test_table_is_readable_on_mobile[chromium] PASSED [ 52%]
+tests-fixed/test_mobile.py::test_form_and_totals_visible_on_mobile[chromium] PASSED [ 52%]
+tests-fixed/test_mobile.py::test_chart_and_legend_visible_on_mobile[chromium] PASSED [ 53%]
+tests-fixed/test_mobile.py::test_max_length_category_does_not_scroll_mobile[chromium] PASSED [ 53%]
+tests-fixed/test_mobile.py::test_long_comment_does_not_scroll_mobile[chromium] PASSED [ 54%]
+tests-fixed/test_roundtrip.py::test_roundtrip_returns_set_verbatim[chromium] PASSED [ 55%]
+tests-fixed/test_roundtrip.py::test_roundtrip_keeps_empty_list_empty[chromium] PASSED [ 55%]
+tests-fixed/test_roundtrip.py::test_roundtrip_survives_long_comment[chromium] PASSED [ 56%]
+tests-fixed/test_totals.py::test_empty_state_shows_zeros[chromium] PASSED [ 56%]
+tests-fixed/test_totals.py::test_balance_is_income_minus_expense[chromium] PASSED [ 57%]
+tests-fixed/test_totals.py::test_negative_balance_is_visually_distinct[chromium] PASSED [ 57%]
+tests-fixed/test_totals.py::test_rounding_does_not_accumulate[chromium] PASSED [ 58%]
+tests-fixed/test_totals.py::test_invariant_rows_sum_equals_totals[chromium] PASSED [ 59%]
+tests-fixed/test_totals.py::test_totals_recalculated_after_delete[chromium] PASSED [ 59%]
+tests-fixed/test_totals.py::test_limit_amount_does_not_break_totals_layout[chromium] PASSED [ 60%]
+tests-fixed/test_totals.py::test_legend_shares_sum_to_100[chromium] PASSED [ 60%]
+tests-fixed/test_totals.py::test_row_count_changes_by_one[chromium] PASSED [ 61%]
+tests-fixed/test_totals.py::test_invariant_totals_survive_add_delete_cycle[chromium] PASSED [ 62%]
+tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1\t200-\u0442\u0430\u0431\u0443\u043b\u044f\u0446\u0438\u044f \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430] FAILED [ 62%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_keeps_current_list[chromium-garbage.csv-\u044d\u0442\u043e \u043d\u0435 csv \u0432\u043e\u043e\u0431\u0449\u0435\n\u043f\u0440\u043e\u0441\u0442\u043e \u0442\u0435\u043a\u0441\u0442;;;\n] PASSED [ 63%]
+tests-fixed/test_fixed_bugs.py::test_bug005_future_date_rejected[chromium-2027-08-16-\u0447\u0435\u0440\u0435\u0437 \u0433\u043e\u0434] PASSED [ 63%]
+tests-fixed/test_fixed_bugs.py::test_bug007_empty_category_rejected[chromium-   ] PASSED [ 64%]
+tests-fixed/test_fixed_bugs.py::test_bug008_long_category_rejected[chromium-200] PASSED [ 65%]
+tests-fixed/test_fixed_bugs.py::test_bug011_loose_number_parsing_rejected[chromium-1e2] PASSED [ 65%]
+tests-fixed/test_fixed_bugs.py::test_r3_number_with_tail_rejected[chromium-12 \u0440\u0443\u0431] PASSED [ 66%]
+tests-fixed/test_fixed_bugs.py::test_bug012_amount_rounding_to_zero_rejected[chromium-0.004] PASSED [ 66%]
+tests-fixed/test_fixed_bugs.py::test_import_uses_the_same_rules_as_the_form[chromium-zero.csv-date,type,category,amount,comment\n{d},expense,\u0415\u0434\u0430,0.001,\n-\u0441\u0443\u043c\u043c\u0430 \u043e\u043a\u0440\u0443\u0433\u043b\u044f\u0435\u0442\u0441\u044f \u0432 \u043d\u043e\u043b\u044c] PASSED [ 67%]
+tests-fixed/test_form.py::test_amount_accepted[chromium-1200.50-1 200,50] PASSED [ 68%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-   ] PASSED      [ 68%]
+tests-fixed/test_form.py::test_amount_boundaries[chromium-100000000-False] PASSED [ 69%]
+tests-fixed/test_form.py::test_amount_rounding[chromium-0.005-0,01] PASSED [ 69%]
+tests-fixed/test_form.py::test_category_accepted[chromium-\u041a\u0430\u0444\u0435 \U0001f354] PASSED [ 70%]
+tests-fixed/test_form.py::test_category_length_boundary[chromium-33-False] PASSED [ 71%]
+tests-fixed/test_form.py::test_past_and_today_accepted[chromium-2026-08-16] PASSED [ 71%]
+tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1\xa0200-\u043d\u0435\u0440\u0430\u0437\u0440\u044b\u0432\u043d\u044b\u0439 \u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430] FAILED [ 72%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_keeps_current_list[chromium-badheader.csv-a,b,c\n1,2,3\n] PASSED [ 72%]
+tests-fixed/test_fixed_bugs.py::test_bug007_empty_category_rejected[chromium-\t] PASSED [ 73%]
+tests-fixed/test_fixed_bugs.py::test_bug011_loose_number_parsing_rejected[chromium-1_000] PASSED [ 73%]
+tests-fixed/test_fixed_bugs.py::test_r3_number_with_tail_rejected[chromium-1,2,3] PASSED [ 74%]
+tests-fixed/test_fixed_bugs.py::test_bug012_amount_rounding_to_zero_rejected[chromium-1e-5] PASSED [ 75%]
+tests-fixed/test_fixed_bugs.py::test_import_uses_the_same_rules_as_the_form[chromium-emptycat.csv-date,type,category,amount,comment\n{d},expense,,100.00,\n-\u043f\u0443\u0441\u0442\u0430\u044f \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f] PASSED [ 75%]
+tests-fixed/test_form.py::test_amount_accepted[chromium-12.5-12,50] PASSED [ 76%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-0] PASSED        [ 76%]
+tests-fixed/test_form.py::test_amount_boundaries[chromium-0.01-True] PASSED [ 77%]
+tests-fixed/test_form.py::test_amount_rounding[chromium-1.005-1,00] PASSED [ 78%]
+tests-fixed/test_form.py::test_category_accepted[chromium-\u041a\u0430,\u0444\u0435] PASSED [ 78%]
+tests-fixed/test_form.py::test_past_and_today_accepted[chromium-1999-01-01] PASSED [ 79%]
+tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1 200.50-\u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0434\u0440\u043e\u0431\u043d\u043e\u0433\u043e \u0447\u0438\u0441\u043b\u0430] FAILED [ 79%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_keeps_current_list[chromium-badamount.csv-date,type,category,amount,comment\n2026-08-16,expense,\u0415\u0434\u0430,abc,\n] PASSED [ 80%]
+tests-fixed/test_fixed_bugs.py::test_bug011_loose_number_parsing_rejected[chromium-1..2] PASSED [ 81%]
+tests-fixed/test_fixed_bugs.py::test_r3_number_with_tail_rejected[chromium-5.] PASSED [ 81%]
+tests-fixed/test_form.py::test_amount_accepted[chromium-1,5-1,50] PASSED [ 82%]
+tests-fixed/test_form.py::test_amount_rejected[chromium--100] PASSED     [ 82%]
+tests-fixed/test_form.py::test_amount_boundaries[chromium-0.004-False] PASSED [ 83%]
+tests-fixed/test_form.py::test_category_accepted[chromium-\u041a\u0430"\u0444\u0435] PASSED [ 84%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_keeps_current_list[chromium-semicolon.csv-date;type;category;amount;comment\n2026-08-16;expense;\u0415\u0434\u0430;100.00;\n] PASSED [ 84%]
+tests-fixed/test_fixed_bugs.py::test_bug011_loose_number_parsing_rejected[chromium-+50] PASSED [ 85%]
+tests-fixed/test_form.py::test_amount_accepted[chromium-10,50-10,50] PASSED [ 85%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-abc] PASSED      [ 86%]
+tests-fixed/test_form.py::test_category_accepted[chromium-\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a\u041a] PASSED [ 86%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_keeps_current_list[chromium-html.csv-<html><body>hi</body></html>] PASSED [ 87%]
+tests-fixed/test_form.py::test_amount_accepted[chromium-  100  -100,00] PASSED [ 88%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-\u0663] PASSED   [ 88%]
+tests-fixed/test_fixed_bugs.py::test_bug002_broken_file_keeps_current_list[chromium-fewcols.csv-date,type,category,amount,comment\n2026-08-16,expense,\u0415\u0434\u0430\n] PASSED [ 89%]
+tests-fixed/test_form.py::test_amount_accepted[chromium-99999999-99 999 999,00] PASSED [ 89%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-Infinity] PASSED [ 90%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-1e309] PASSED    [ 91%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-1e5] PASSED      [ 91%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-1e2] PASSED      [ 92%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-1_000] PASSED    [ 92%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-1..2] PASSED     [ 93%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-+50] PASSED      [ 94%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-.5] PASSED       [ 94%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-007] PASSED      [ 95%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-12abc] PASSED    [ 95%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-12 \u0440\u0443\u0431] PASSED [ 96%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-1,2,3] PASSED    [ 97%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-5.] PASSED       [ 97%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-0x10] PASSED     [ 98%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-0.001] PASSED    [ 98%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-0.004] PASSED    [ 99%]
+tests-fixed/test_form.py::test_amount_rejected[chromium-1e-5] PASSED     [100%]
+
+================================== FAILURES ===================================
+_ test_rtbug001_whitespace_inside_amount_rejected[chromium-1 2 0 0-\u043f\u0440\u043e\u0431\u0435\u043b \u043c\u0435\u0436\u0434\u0443 \u043a\u0430\u0436\u0434\u043e\u0439 \u0446\u0438\u0444\u0440\u043e\u0439] _
+tests-fixed\test_defects.py:36: in test_rtbug001_whitespace_inside_amount_rejected
+    assert_rejected(app, before_rows, before_totals)
+tests-fixed\helpers.py:107: in assert_rejected
+    assert row_count(page) == rows_before, "появилась строка, хотя форма должна была отказать"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: появилась строка, хотя форма должна была отказать
+___ test_rtbug001_whitespace_amount_is_not_silently_reinterpreted[chromium] ___
+tests-fixed\test_defects.py:43: in test_rtbug001_whitespace_amount_is_not_silently_reinterpreted
+    assert row_count(app) == 0, f"ввод молча переосмыслен: {rows(app)}"
+E   AssertionError: \u0432\u0432\u043e\u0434 \u043c\u043e\u043b\u0447\u0430 \u043f\u0435\u0440\u0435\u043e\u0441\u043c\u044b\u0441\u043b\u0435\u043d: ['16.08.2026\\t\u041e\u043f\u0435\u0447\u0430\u0442\u043a\u0430\\t\\t\u2212 1\\xa0200,00 \u20bd\\t\xd7']
+E   assert 1 == 0
+E    +  where 1 = row_count(<Page url='http://127.0.0.1:8080/index_refactor.html'>)
+_________ test_rtbug001_whitespace_amount_from_csv_rejected[chromium] _________
+tests-fixed\test_defects.py:51: in test_rtbug001_whitespace_amount_from_csv_rejected
+    assert row_count(app) == 0, f"файл с суммой «1 2 0 0» принят: {rows(app)}"
+E   AssertionError: \u0444\u0430\u0439\u043b \u0441 \u0441\u0443\u043c\u043c\u043e\u0439 \xab1 2 0 0\xbb \u043f\u0440\u0438\u043d\u044f\u0442: ['16.08.2026\\t\u0415\u0434\u0430\\t\\t\u2212 1\\xa0200,00 \u20bd\\t\xd7']
+E   assert 1 == 0
+E    +  where 1 = row_count(<Page url='http://127.0.0.1:8080/index_refactor.html'>)
+__________ test_rtbug002_import_error_has_no_double_period[chromium] __________
+tests-fixed\test_defects.py:70: in test_rtbug002_import_error_has_no_double_period
+    assert ".." not in text, f"две точки подряд в сообщении: {text!r}"
+E   AssertionError: две точки подряд в сообщении: 'Файл не загружен: строка 2: сумма записывается цифрами, например 1200 или 1200.50.. Список записей не изменён.'
+E   assert '..' not in 'Файл не заг... не изменён.'
+E     
+E     '..' is contained here:
+E       Файл не загружен: строка 2: сумма записывается цифрами, например 1200 или 1200.50.. Список записей не изменён.
+E     ?                                                                                  ++
+_ test_rtbug001_whitespace_inside_amount_rejected[chromium-1\t200-\u0442\u0430\u0431\u0443\u043b\u044f\u0446\u0438\u044f \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430] _
+tests-fixed\test_defects.py:36: in test_rtbug001_whitespace_inside_amount_rejected
+    assert_rejected(app, before_rows, before_totals)
+tests-fixed\helpers.py:107: in assert_rejected
+    assert row_count(page) == rows_before, "появилась строка, хотя форма должна была отказать"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: появилась строка, хотя форма должна была отказать
+_ test_rtbug001_whitespace_inside_amount_rejected[chromium-1\xa0200-\u043d\u0435\u0440\u0430\u0437\u0440\u044b\u0432\u043d\u044b\u0439 \u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430] _
+tests-fixed\test_defects.py:36: in test_rtbug001_whitespace_inside_amount_rejected
+    assert_rejected(app, before_rows, before_totals)
+tests-fixed\helpers.py:107: in assert_rejected
+    assert row_count(page) == rows_before, "появилась строка, хотя форма должна была отказать"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: появилась строка, хотя форма должна была отказать
+_ test_rtbug001_whitespace_inside_amount_rejected[chromium-1 200.50-\u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0434\u0440\u043e\u0431\u043d\u043e\u0433\u043e \u0447\u0438\u0441\u043b\u0430] _
+tests-fixed\test_defects.py:36: in test_rtbug001_whitespace_inside_amount_rejected
+    assert_rejected(app, before_rows, before_totals)
+tests-fixed\helpers.py:107: in assert_rejected
+    assert row_count(page) == rows_before, "появилась строка, хотя форма должна была отказать"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: появилась строка, хотя форма должна была отказать
+=========================== short test summary info ===========================
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1 2 0 0-\u043f\u0440\u043e\u0431\u0435\u043b \u043c\u0435\u0436\u0434\u0443 \u043a\u0430\u0436\u0434\u043e\u0439 \u0446\u0438\u0444\u0440\u043e\u0439]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_amount_is_not_silently_reinterpreted[chromium]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_amount_from_csv_rejected[chromium]
+FAILED tests-fixed/test_defects.py::test_rtbug002_import_error_has_no_double_period[chromium]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1\t200-\u0442\u0430\u0431\u0443\u043b\u044f\u0446\u0438\u044f \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1\xa0200-\u043d\u0435\u0440\u0430\u0437\u0440\u044b\u0432\u043d\u044b\u0439 \u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1 200.50-\u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0434\u0440\u043e\u0431\u043d\u043e\u0433\u043e \u0447\u0438\u0441\u043b\u0430]
+================== 7 failed, 162 passed in 66.99s (0:01:06) ===================

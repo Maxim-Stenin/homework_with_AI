@@ -1,0 +1,41 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\msten\Downloads\TestTask
+configfile: pytest.ini
+plugins: base-url-2.1.0, playwright-0.9.0
+collected 169 items
+
+tests-fixed\test_chart.py .........                                      [  5%]
+tests-fixed\test_csv_export.py .......                                   [  9%]
+tests-fixed\test_csv_import.py ............                              [ 16%]
+tests-fixed\test_defects.py FFFF                                         [ 18%]
+tests-fixed\test_fixed_bugs.py ..............................            [ 36%]
+tests-fixed\test_form.py ........................                        [ 50%]
+tests-fixed\test_mobile.py ......                                        [ 54%]
+tests-fixed\test_roundtrip.py ...                                        [ 56%]
+tests-fixed\test_totals.py ..........                                    [ 62%]
+tests-fixed\test_defects.py F                                            [ 62%]
+tests-fixed\test_fixed_bugs.py ........                                  [ 67%]
+tests-fixed\test_form.py .......                                         [ 71%]
+tests-fixed\test_defects.py F                                            [ 72%]
+tests-fixed\test_fixed_bugs.py ......                                    [ 75%]
+tests-fixed\test_form.py ......                                          [ 79%]
+tests-fixed\test_defects.py F                                            [ 79%]
+tests-fixed\test_fixed_bugs.py ...                                       [ 81%]
+tests-fixed\test_form.py ....                                            [ 84%]
+tests-fixed\test_fixed_bugs.py ..                                        [ 85%]
+tests-fixed\test_form.py ...                                             [ 86%]
+tests-fixed\test_fixed_bugs.py .                                         [ 87%]
+tests-fixed\test_form.py ..                                              [ 88%]
+tests-fixed\test_fixed_bugs.py .                                         [ 89%]
+tests-fixed\test_form.py ..................                              [100%]
+
+=========================== short test summary info ===========================
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1 2 0 0-\u043f\u0440\u043e\u0431\u0435\u043b \u043c\u0435\u0436\u0434\u0443 \u043a\u0430\u0436\u0434\u043e\u0439 \u0446\u0438\u0444\u0440\u043e\u0439]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_amount_is_not_silently_reinterpreted[chromium]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_amount_from_csv_rejected[chromium]
+FAILED tests-fixed/test_defects.py::test_rtbug002_import_error_has_no_double_period[chromium]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1\t200-\u0442\u0430\u0431\u0443\u043b\u044f\u0446\u0438\u044f \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1\xa0200-\u043d\u0435\u0440\u0430\u0437\u0440\u044b\u0432\u043d\u044b\u0439 \u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0447\u0438\u0441\u043b\u0430]
+FAILED tests-fixed/test_defects.py::test_rtbug001_whitespace_inside_amount_rejected[chromium-1 200.50-\u043f\u0440\u043e\u0431\u0435\u043b \u0432\u043d\u0443\u0442\u0440\u0438 \u0434\u0440\u043e\u0431\u043d\u043e\u0433\u043e \u0447\u0438\u0441\u043b\u0430]
+======================= 7 failed, 162 passed in 48.11s ========================
