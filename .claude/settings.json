@@ -26,7 +26,11 @@
       "Write(homework.pdf)",
       "Edit(app/**)",
       "Write(app/**)",
-      "NotebookEdit(app/**)"
+      "NotebookEdit(app/**)",
+      "Read(./sessions/session-2.md)",
+      "Read(./sessions/session-5.md)",
+      "Read(./naive-run/**)",
+      "Read(./naive-run-2/**)"
     ],
     "ask": [
       "Bash(git push*)",
