@@ -30,10 +30,7 @@
       "Edit(app-fixed/**)",
       "Write(app-fixed/**)",
       "NotebookEdit(app-fixed/**)",
-      "Read(./sessions/session-2.md)",
-      "Read(./sessions/session-5.md)",
-      "Read(./naive-run/**)",
-      "Read(./naive-run-2/**)"
+      "Read(./sessions/session-2.md)"
     ],
     "ask": [
       "Bash(git push*)",
