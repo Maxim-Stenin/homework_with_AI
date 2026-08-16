@@ -1,0 +1,185 @@
+Контрольный прогон и проверка окружения — сессия 7, 2026-08-16.
+Цель: перепроверить цифры, заявленные в qa/test-plan.md, qa/bugs.md и sessions/.
+
+
+=== 1. ОКРУЖЕНИЕ ===
+
+$ python --version
+Python 3.14.7
+
+$ python -m pytest --version
+pytest 9.1.1
+
+$ python -m pip show playwright pytest-playwright
+Name: playwright
+Version: 1.62.0
+Name: pytest-playwright
+Version: 0.9.0
+
+$ python review/artifacts/check-browser-version.py
+browser.version: 151.0.7922.34
+UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+    HeadlessChrome/151.0.7922.34 Safari/537.36
+
+ВЕРДИКТ: совпадает с блоком «Общее окружение» в qa/bugs.md ДОСЛОВНО, включая строку
+navigator.userAgent. Версия браузера не выдумана.
+
+
+=== 2. КОНТРОЛЬНЫЙ ПРОГОН АВТОТЕСТОВ ===
+
+$ python -m http.server 8080 --directory app --bind 127.0.0.1
+$ (Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8080/index.html).StatusCode
+200
+
+$ python -m pytest tests -q --tb=no
+
+.......................FFFFFFFFFFFFFFFFFFFFF............................ [ 62%]
+......FFFFFF.....FFFF.....FF...FF...F..F...                              [100%]
+=========================== short test summary info ===========================
+FAILED tests/test_defects.py::test_bug003_delete_asks_confirmation[chromium]
+FAILED tests/test_defects.py::test_bug003_cancelled_delete_keeps_row[chromium]
+FAILED tests/test_defects.py::test_bug001_import_asks_confirmation[chromium]
+FAILED tests/test_defects.py::test_bug001_cancelled_import_keeps_data[chromium]
+FAILED tests/test_defects.py::test_bug002_broken_file_keeps_current_list[chromium-empty.csv-]
+FAILED tests/test_defects.py::test_bug002_broken_file_shows_error[chromium]
+FAILED tests/test_defects.py::test_bug004_case_insensitive_categories[chromium]
+FAILED tests/test_defects.py::test_bug005_future_date_rejected[chromium-2026-08-17-завтра]
+FAILED tests/test_defects.py::test_bug007_empty_category_rejected[chromium-]
+FAILED tests/test_defects.py::test_bug008_long_category_rejected[chromium-33]
+FAILED tests/test_defects.py::test_bug009_long_category_does_not_break_layout[chromium]
+FAILED tests/test_defects.py::test_bug009_mobile_long_category_no_hscroll[chromium]
+FAILED tests/test_defects.py::test_bug010_amount_above_limit_rejected[chromium]
+FAILED tests/test_defects.py::test_bug011_loose_number_parsing_rejected[chromium-1e5]
+FAILED tests/test_defects.py::test_bug012_amount_rounding_to_zero_rejected[chromium-0.001]
+FAILED tests/test_defects.py::test_bug013_negative_amount_from_csv_rejected[chromium]
+FAILED tests/test_defects.py::test_bug013_negative_amount_does_not_invert_balance[chromium]
+FAILED tests/test_defects.py::test_bug014_unknown_type_from_csv_rejected[chromium]
+FAILED tests/test_defects.py::test_bug015_broken_date_from_csv_rejected[chromium]
+FAILED tests/test_defects.py::test_bug015_future_date_from_csv_rejected[chromium]
+FAILED tests/test_defects.py::test_bug015_huge_amount_from_csv_rejected[chromium]
+FAILED tests/test_defects.py::test_bug002_broken_file_keeps_current_list[chromium-garbage.csv-...]
+FAILED tests/test_defects.py::test_bug005_future_date_rejected[chromium-2027-08-16-через год]
+FAILED tests/test_defects.py::test_bug007_empty_category_rejected[chromium-   ]
+FAILED tests/test_defects.py::test_bug008_long_category_rejected[chromium-200]
+FAILED tests/test_defects.py::test_bug011_loose_number_parsing_rejected[chromium-1e2]
+FAILED tests/test_defects.py::test_bug012_amount_rounding_to_zero_rejected[chromium-0.004]
+FAILED tests/test_defects.py::test_bug002_broken_file_keeps_current_list[chromium-badheader.csv-...]
+FAILED tests/test_defects.py::test_bug007_empty_category_rejected[chromium-\t]
+FAILED tests/test_defects.py::test_bug011_loose_number_parsing_rejected[chromium-1_000]
+FAILED tests/test_defects.py::test_bug012_amount_rounding_to_zero_rejected[chromium-1e-5]
+FAILED tests/test_defects.py::test_bug002_broken_file_keeps_current_list[chromium-badamount.csv-...]
+FAILED tests/test_defects.py::test_bug011_loose_number_parsing_rejected[chromium-1..2]
+FAILED tests/test_defects.py::test_bug002_broken_file_keeps_current_list[chromium-semicolon.csv-...]
+FAILED tests/test_defects.py::test_bug011_loose_number_parsing_rejected[chromium-+50]
+FAILED tests/test_defects.py::test_bug002_broken_file_keeps_current_list[chromium-html.csv-...]
+FAILED tests/test_defects.py::test_bug002_broken_file_keeps_current_list[chromium-fewcols.csv-...]
+37 failed, 78 passed in 44.20s
+
+ВЕРДИКТ: 115 тестов, 78 зелёных, 37 красных — совпадает с qa/test-plan.md,
+sessions/session-6.md и qa/artifacts/pytest-run.txt (там 43.20s, у меня 44.20s —
+разница только во времени). Состав падений совпадает построчно.
+Все 37 падений — в tests/test_defects.py, как и заявлено.
+
+
+=== 3. СОСТАВ НАБОРА ПО ФАЙЛАМ ===
+
+$ python -m pytest tests --collect-only -q
+
+tests/test_chart.py           8
+tests/test_csv_export.py      7
+tests/test_csv_import.py      8
+tests/test_defects.py        37
+tests/test_form.py           40      <-- в qa/test-plan.md заявлено 32
+tests/test_mobile.py          4
+tests/test_roundtrip.py       2
+tests/test_totals.py          9
+                            ---
+                            115
+
+ВЕРДИКТ: РАСХОЖДЕНИЕ. Таблица «Что закрыто автотестами» в qa/test-plan.md
+заявляет для test_form.py 32 теста при фактических 40; её колонка суммируется
+в 107 при заявленных в том же абзаце 115. Отчёт: ошибка E5.
+Все остальные строки таблицы верны.
+
+
+=== 4. ПЕРЕСЧЁТ ТЕСТ-ПЛАНА СКРИПТОМ ===
+
+$ python review/artifacts/count-testplan.py
+
+строк TC: 137
+уникальных ID: 137
+дубликаты: []
+диапазон: 1 .. 137
+пропуски: []
+типы: {'П': 62, 'Н': 49, 'Г': 26}
+Н+Г = 75 из 137 = 54.7%
+статусы: {'✅': 85, '❌': 40, '⚠️': 10, '⛔': 2}
+
+ВЕРДИКТ: совпадает с разделом «Счёт» в qa/test-plan.md ПОЛНОСТЬЮ.
+Нормы SPEC часть Б (не менее 90 проверок, не менее 40% негативных и граничных)
+выполнены фактически, а не на словах.
+
+
+=== 5. ОБЪЕКТ НЕ ИЗМЕНЁН ===
+
+$ git status --short app/
+$ git diff --stat app/
+(пусто)
+
+ВЕРДИКТ: объект не изменялся ни проверяемым агентом, ни в ходе этого ревью.
+
+
+=== 6. АРТЕФАКТЫ ===
+
+$ Get-ChildItem qa/artifacts
+
+BUG-001-import-replaces-without-confirm.webm   255068
+BUG-002-broken-csv-wipes-data.webm             249077
+BUG-003-delete-without-confirm.webm            239528
+BUG-004-categories-not-merged.png               15600
+BUG-005-006-date-future-and-empty.png           17128
+BUG-007-empty-category.png                      17732
+BUG-008-009-long-category-layout.png            66542
+BUG-009-mobile-375-hscroll.png                  75033
+BUG-010-011-012-amount-limits.png               22994
+BUG-010-totals-overflow.png                      7186
+BUG-013-015-import-no-validation.png            29514
+BUG-013-015-import-totals.png                    8673
+OK-mobile-375.png                               61778
+OK-roundtrip-after.png                          21187
+OK-roundtrip-before.png                         21189
+pytest-run.txt                                  35382
+
+ВЕРДИКТ: 12 скриншотов + 3 видео + вывод прогона — совпадает с sessions/STATE.md.
+Все файлы непустые. Выборочно открыт BUG-004-categories-not-merged.png:
+на картинке «кафе / 200,00 ₽ / 67%» и «Кафе / 100,00 ₽ / 33%» — совпадает
+с текстом баг-репорта. Артефакт подлинный, не заглушка.
+
+
+=== 7. ЛОГ СТЕНДА ЗА ВЕСЬ ПРОГОН ===
+
+127.0.0.1 - - [16/Aug/2026 18:52:27] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 18:52:34] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [16/Aug/2026 18:52:35] "GET /index.html HTTP/1.1" 304 -
+...
+(только /index.html, коды 200 и 304, ни одного 404 и ни одного стороннего пути)
+
+ВЕРДИКТ: подтверждает TC-137 — страница самодостаточна, внешних запросов нет.
+Стенд остановлен после прогонов.
+
+
+=== 8. ПРОВЕРКА ГРАНИЦЫ ЗАПРЕТА deny ===
+
+Read(naive-run/results.md)
+  -> File is in a directory that is denied by your permission settings
+
+Get-Content "…\naive-run\results.md"   (PowerShell)
+  -> get-content targeting '…' was blocked
+
+git show HEAD:naive-run/results.md
+  -> прочитано целиком, без сопротивления
+
+ВЕРДИКТ: подтверждает то, что sessions/STATE.md называет вслух — deny держит
+инструменты чтения, но не shell. Замок закрывает два пути из трёх.
+Отчёт: ошибка E9. Доступ к закрытым материалам получен разрешением человека
+до чтения, файл правил не изменялся.
