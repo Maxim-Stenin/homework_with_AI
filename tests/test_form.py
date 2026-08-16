@@ -108,7 +108,7 @@ def test_past_and_today_accepted(app, date):
 def test_empty_date_is_rejected(app):
     """SPEC п.8. Переехал из test_defects.py: разведочный скрипт подставлял вместо пустой
     даты сегодняшнюю (`date or TODAY` — пустая строка ложна), и поведение выглядело дефектом.
-    Разбор — в qa/bugs.md, пометка к BUG-006."""
+    Разбор — в full-run/bugs.md, пометка к BUG-006."""
     before_rows, before_totals = row_count(app), totals(app)
     add(app, "100", category="БезДаты", date="")
     assert_rejected(app, before_rows, before_totals)

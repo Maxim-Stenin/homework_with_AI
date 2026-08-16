@@ -287,7 +287,7 @@
 
 ## Что закрыто автотестами
 
-Прогон: `python -m pytest tests -v`, вывод целиком — `qa/artifacts/pytest-run.txt`.
+Прогон: `python -m pytest tests -v`, вывод целиком — `full-run/artifacts/pytest-run.txt`.
 **115 тестов: 78 пройдено, 37 упало.** Все 37 падений — в `tests/test_defects.py`,
 каждое сослано на BUG-NNN; это требуемый результат, а не поломка набора.
 

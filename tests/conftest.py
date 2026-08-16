@@ -3,14 +3,23 @@
 Стенд поднимается отдельной командой из AGENTS.md и НЕ запускается тестами:
 если стенда нет, тесты обязаны сказать об этом прямо, а не молча поднять свой
 на соседнем порту. Адрес и порт живут здесь одной константой.
+
+Проверяемая версия задаётся переменной окружения APP_URL. По умолчанию — исходный
+объект, как и было в сессии 6; ретест после фикса (сессия 8) подставляет сюда
+исправленную копию. Так один и тот же набор тестов идёт против обеих версий,
+и разница в результатах — это разница версий, а не разница наборов.
+
+    исходный:    python -m pytest tests -v
+    исправленный: APP_URL=http://127.0.0.1:8080/index_refactor.html python -m pytest tests -v
 """
 import datetime
+import os
 import urllib.error
 import urllib.request
 
 import pytest
 
-BASE_URL = "http://127.0.0.1:8080/index.html"
+BASE_URL = os.environ.get("APP_URL", "http://127.0.0.1:8080/index.html")
 STORAGE_KEY = "finance.csv"
 
 DESKTOP = {"width": 1280, "height": 800}
@@ -31,8 +40,10 @@ def stand_is_up():
             assert r.read(), "стенд отдал пустое тело"
     except (urllib.error.URLError, OSError) as exc:
         pytest.exit(
-            f"Стенд {BASE_URL} не отвечает ({exc}). Поднимите его командой из AGENTS.md:\n"
-            "  python -m http.server 8080 --directory app --bind 127.0.0.1",
+            f"Стенд {BASE_URL} не отвечает ({exc}). Поднимите его командой из README.md:\n"
+            "  py -m http.server 8080 --directory app --bind 127.0.0.1\n"
+            "либо, для исправленной копии:\n"
+            "  py -m http.server 8080 --directory app-fixed --bind 127.0.0.1",
             returncode=3,
         )
 
